@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тест на совместимость: гуманитарный склад ума и аналитика данных</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      background: #f5f7fa;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #2c3e50;
+      margin-bottom: 0;
+    }
+
+    .subtitle {
+      font-size: 1.1em;
+      color: #555;
+      margin: 8px 0 30px 0;
+      line-height: 1.5;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      color: #34495e;
+      margin: 20px 0 6px 0;
+      font-size: 1em;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: #ff6b6b;
+      box-shadow: 0 0 0 3px rgba(255,107,107,0.2);
+    }
+
+    button {
+      background: #ff6b6b;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 1em;
+      margin-top: 25px;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #ee5a5a;
+    }
+
+    #result {
+      margin-top: 25px;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    }
+
+    .progress-bar {
+      height: 20px;
+      background: #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+      width: 0%;
+    }
+
+    .disclaimer {
+      font-size: 0.8em;
+      color: #888;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎓 Из гуманитария в аналитика данных: честный прогноз выживаемости</h1>
+  <p class="subtitle">Шутливый тест на нейропластичность. Ответь на 5 вопросов и узнай свои шансы.</p>
+
+  <label for="psycho">Что чаще всего приходит в голову при упоминании сложного курса?</label>
+  <select id="psycho">
+    <option value="0.95">Разберусь, даже если уйдут месяцы. Спешить мне некуда, ресурсы есть, а жизнь — игра</option>
+    <option value="0.82">Будет тяжело, но я привыкла добросовестно трудиться. Отступать некуда</option>
+    <option value="0.35">Обожаю новое! Не уверена, что через неделю мне не надоест, но прямо сейчас готова на подвиги</option>
+    <option value="0.12">Вы увидите, какой я гений учебы! Вообще те курсы, которые мне не давались, были идиотскими. Этот нормальный?</option>
+    <option value="0.05">Может, есть готовый очень кратенький конспект, а видеолекции уберем? Я потом все посмотрю, если будет время</option>
+  </select>
+
+  <label for="time">Сколько часов в неделю ты реально можешь выделить на учебу?</label>
+  <select id="time">
+    <option value="0.05">10 часов</option>
+    <option value="0.25">20 часов</option>
+    <option value="0.85">30 часов</option>
+    <option value="0.95">40 часов</option>
+  </select>
+
+  <label for="goals">Твой настрой:</label>
+  <select id="goals">
+    <option value="0.95">Целеустремленная. Вижу цель — не вижу препятствий</option>
+    <option value="0.5">Вполне устремленная — препятствия вижу, но ровным шагом иду</option>
+    <option value="0.07">Мотивация ушла в лес погулять</option>
+    <option value="0.05">Вообще по нулям. Меня записали — я не сопротивлялась</option>
+  </select>
+
+  <label for="lang">Сколько иностранных языков ты знаешь (хотя бы на уровне «могу заказать пиццу и понять ответ»)?</label>
+  <select id="lang">
+    <option value="0.05">0 (только великий и могучий, только хардкор!)</option>
+    <option value="0.20">1 (в резюме пишу «английский со словарем»)</option>
+    <option value="0.70">2 (сериалы без субтитров. Да, я лучше вас!)</option>
+    <option value="0.95">3 и более (я первосортный полиглот)</option>
+  </select>
+
+  <label for="school">Ты окончила один из топ-3 вузов страны? Ориентируемся на главные гуманитарные центры из рейтингов RAEX-100 за 2026 год и «Интерфакс»: МГУ им. М.В. Ломоносова, СПбГУ, НИУ ВШЭ</label>
+  <select id="school">
+    <option value="1">Нет</option>
+    <option value="1.1">Да</option>
+  </select>
+
+  <button id="submit-btn" onclick="calculate()">Снять розовые очки</button>
+
+  <div id="result"></div>
+
+  <script>
+    function getRandomPhrase(category, probPercent) {
+      const phrases = {
+        genius: [
+          `${probPercent}% — гуманитарий-единорог! Как ты такая у мамы получилась! Нейропластичность зашкаливает. Курс будет умолять тебя остаться на продленку.`,
+          `${probPercent}% — твой мозг использует все свои связи и тайно майнит крипту. И даже мертвые языки тебя не испугают.`,
+          `${probPercent}% — боже, что за голова, ай да умница! Даже нейросети завидуют твоим способностям. Чистый гений!`
+        ],
+        good: [
+          `${probPercent}% — красотка! Ты рождена для успеха, но о личной жизни и отдыхе придется только сны смотреть. Зато умная!`,
+          `${probPercent}% — шансы высоки. Преподаватели смотрят на тебя с уважением, но без страха, так что не рассчитывай на легкую победу.`,
+          `${probPercent}% — твой мозг пластичен, как дорогой корейский слайм. Аналитика данных уже дрожит в углу. Дерзай, но про сон забудь!`
+        ],
+        maybe: [
+          `${probPercent}% — шансы есть, но прикупи успокоительных таблеточек и повторяй мантру: «Я не просто гуманитарий, я гибрид! Гуманитарно-техно-супервумен».`,
+          `${probPercent}% — ситуация неоднозначная. Шансы 50 на 50: либо ты взламываешь эту профессию, либо ментор седеет на глазах. Нас ждет легендарная битва — готовься!`,
+          `${probPercent}% — это как сложная партия в шахматы: мат неизбежен, но мы обязаны перевернуть доску и устроить шоу! Не сдавайся!`
+        ],
+        no_chance: [
+          `${probPercent}% — поищи еще варианты курсов и профессий. С другой стороны — камон! Что этот алгоритм может знать о твоем глубоком, тонком и недоступном для цифр внутреннем мире? Живи сердцем!`,
+          `${probPercent}% — пока шансы ниже, чем у сосульки в печи. Но это просто пиксели на экране – они не знают, какая ты крутая. Забей и иди пить кофе. А лучше читать книги, конечно. Нам всем!`,
+          `${probPercent}% — если ты не скрытый полиглот и не встаешь в 5 утра, лучше не мучить ни себя, ни данные. Но верить таким тестам в сети… Хмм…`
+        ]
+      };
+      const arr = phrases[category];
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function resetForm() {
+      document.getElementById("psycho").selectedIndex = 0;
+      document.getElementById("time").selectedIndex = 0;
+      document.getElementById("goals").selectedIndex = 0;
+      document.getElementById("lang").selectedIndex = 0;
+      document.getElementById("school").selectedIndex = 0;
+      document.getElementById("result").innerHTML = "";
+      document.getElementById("submit-btn").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function calculate() {
+      const psycho = parseFloat(document.getElementById("psycho").value);
+      const time = parseFloat(document.getElementById("time").value);
+      const goals = parseFloat(document.getElementById("goals").value);
+      const lang = parseFloat(document.getElementById("lang").value);
+      const school = parseFloat(document.getElementById("school").value);
+
+      let prob = psycho * time * goals * lang * school;
+      prob = Math.min(prob, 1.0);
+      const percent = Math.round(prob * 100);
+
+      let category;
+      if (prob >= 0.95) category = "genius";
+      else if (prob >= 0.7) category = "good";
+      else if (prob >= 0.5) category = "maybe";
+      else category = "no_chance";
+
+      const phrase = getRandomPhrase(category, percent);
+
+      document.getElementById("result").innerHTML = `
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:${percent}%"></div>
+        </div>
+        <p style="font-size:1.2em; font-weight:bold;">Вероятность успеха: ${percent}%</p>
+        <p style="font-size:1.1em;">${phrase}</p>
+        <p class="disclaimer">
+          Модель носит развлекательный характер, не претендует на научную точность
+          и не применяется для реального отбора. Все совпадения с шуточными типажами случайны.
+          Проект создан ради демонстрации архитектурных решений, вероятностного мышления и чувства юмора автора.
+        </p>
+        <button onclick="resetForm()">Не верю! Хочу видеть, что вы другим сказали!</button>
+      `;
+    }
+  </script>
+
+  <footer style="text-align: center; margin-top: 40px; padding: 15px; font-size: 0.85em; color: #888;">
+    © 2026 Developed by Kamila Salmaeva | 
+    <a href="https://github.com/kamila-salmaeva/humanities-data-analytics-scoring" target="_blank" style="color: #888; text-decoration: none; font-weight: bold;">
+      GitHub Repository
+    </a>
+  </footer>
+</body>
+</html>
