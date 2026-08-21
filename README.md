@@ -1,6 +1,8 @@
 # Из гуманитария в аналитика данных: честный прогноз выживаемости
 
-ℹ️ **Note:** This project is written in Russian.
+| Project Language | Stats |
+| :--- | :---: |
+| :globe_with_meridians: Russian | ![Analytics Views](https://github-views-counter.kamila-sv.workers.dev/humanities-data-analytics-scoring)
 
 **Живое демо (основная ссылка):** [GitHub Pages](https://kamila-salmaeva.github.io/humanities-data-analytics-scoring/)  
 **Зеркало на Hugging Face:** [Hugging Face Space](https://huggingface.co/spaces/kamilasv/humanities-data-analytics-scoring)  
